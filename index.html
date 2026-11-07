@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>repkapel.dev, websites for small businesses</title>
+  <meta name="description" content="Websites for small businesses in Poland and Ukraine, in four languages. Three plans from 1000 zł.">
+
+  <!-- Один шрифт на весь сайт: Newsreader, газетная антиква с оптическими размерами
+       (в крупном кегле сама становится тоньше и плотнее, в мелком шире и читабельнее) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== ШАПКА =====
+       Фиксированная. Её цвет меняется под секцию, которая сейчас под ней (см. script.js) -->
+  <header class="header" data-tone="paper">
+    <a href="#top" class="wordmark">repkapel.dev</a>
+
+    <nav class="nav" aria-label="Sections">
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+      <a href="#process" data-i18n="nav.process">Process</a>
+    </nav>
+
+    <div class="switches">
+      <div class="switch" role="group" aria-label="Language">
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="pl">PL</button>
+        <button type="button" data-lang="uk">UA</button>
+        <button type="button" data-lang="ru">RU</button>
+      </div>
+      <div class="switch" role="group" aria-label="Currency">
+        <button type="button" data-currency="pln">zł</button>
+        <button type="button" data-currency="eur">€</button>
+        <button type="button" data-currency="uah">₴</button>
+      </div>
+    </div>
+
+    <a href="#contact" class="btn btn--accent header__cta" data-i18n="nav.cta">Get in touch</a>
+  </header>
+
+  <main id="top">
+
+    <!-- ===== ПЕРВЫЙ ЭКРАН: два поля, бумага сверху и латунь снизу =====
+         Заголовок лежит поверх обоих полей, стык режет вторую строку. -->
+    <section class="hero" data-chapter="paper">
+      <div class="hero__field hero__field--top"></div>
+      <div class="hero__field hero__field--bottom">
+        <p class="hero__text" data-i18n="hero.text">Websites for small businesses in Poland and Ukraine.</p>
+      </div>
+      <h1 class="hero__title" data-swap>
+        <span class="hero__line" data-i18n="hero.l1">Your business</span>
+        <span class="hero__line" data-i18n="hero.l2">online.</span>
+      </h1>
+    </section>
+
+    <!-- ===== ОБО МНЕ: две фразы, крупная слева, мелкая справа ===== -->
+    <section class="about" id="about" data-chapter="paper">
+      <h2 class="chapter-title reveal" data-i18n="about.title">About me</h2>
+      <p class="about__lead reveal" data-i18n="about.lead"></p>
+      <p class="about__text reveal" data-i18n="about.body"></p>
+    </section>
+
+    <!-- ===== ЦЕНЫ: большая таблица =====
+         Разметка идёт «по тарифам» (каждый тариф — своя колонка), чтобы на телефоне
+         колонки просто встали друг под друга блоками. На компьютере их выравнивает subgrid. -->
+    <section class="pricing" id="pricing" data-chapter="paper">
+      <div class="ptable">
+        <div class="ptable__labels" aria-hidden="true">
+          <h2 class="ptable__title" data-i18n="pricing.title">Pricing</h2>
+          <span data-i18n="row.what"></span>
+          <span data-i18n="row.pages"></span>
+          <span data-i18n="row.langs"></span>
+          <span data-i18n="row.incl"></span>
+          <span data-i18n="row.support"></span>
+          <span data-i18n="row.time"></span>
+          <span></span>
+        </div>
+
+        <!-- Каждая ячейка: подпись строки (видна только на телефоне) + ответ -->
+        <article class="pplan reveal">
+          <header class="pplan__head">
+            <h3 data-i18n="plan.basic.name">Basic</h3>
+            <p class="pplan__price" data-price="basic"></p>
+          </header>
+          <p><span class="pplan__lbl" data-i18n="row.what"></span><span data-i18n="c.what.basic"></span></p>
+          <p><span class="pplan__lbl" data-i18n="row.pages"></span><span data-i18n="c.pages.basic"></span></p>
+          <p><span class="pplan__lbl" data-i18n="row.langs"></span><span>1</span></p>
+          <p><span class="pplan__lbl" data-i18n="row.incl"></span><span data-i18n="c.incl.basic"></span></p>
+          <p><span class="pplan__lbl" data-i18n="row.support"></span><span data-i18n="c.support.basic"></span></p>
+          <p><span class="pplan__lbl" data-i18n="row.time"></span><span data-i18n="c.time.basic"></span></p>
+          <div class="pplan__foot"><a href="#contact" class="btn btn--ink" data-i18n="pricing.order">Order</a></div>
+        </article>
+
+        <!-- Про: рекомендуемый, вся колонка на латуни -->
+        <article class="pplan pplan--pick reveal">
+          <header class="pplan__head">
+            <h3 data-i18n="plan.pro.name">Pro</h3>
+            <p class="pplan__price" data-price="pro"></p>
+          </header>
+          <p><span class="pplan__lbl" data-i18n="row.what"></span><span data-i18n="c.what.pro"></span></p>
+          <p><span class="pplan__lbl" data-i18n="row.pages"></span><span data-i18n="c.pages.pro"></span></p>
+          <p><span class="pplan__lbl" data-i18n="row.langs"></span><span>2</span></p>
+          <p><span class="pplan__lbl" data-i18n="row.incl"></span><span data-i18n="c.incl.pro"></span></p>
+          <p><span class="pplan__lbl" data-i18n="row.support"></span><span data-i18n="c.support.pro"></span></p>
+          <p><span class="pplan__lbl" data-i18n="row.time"></span><span data-i18n="c.time.pro"></span></p>
+          <div class="pplan__foot"><a href="#contact" class="btn btn--ink" data-i18n="pricing.order">Order</a></div>
+        </article>
+
+        <article class="pplan reveal">
+          <header class="pplan__head">
+            <h3 data-i18n="plan.premium.name">Premium</h3>
+            <p class="pplan__price" data-price="premium"></p>
+          </header>
+          <p><span class="pplan__lbl" data-i18n="row.what"></span><span data-i18n="c.what.premium"></span></p>
+          <p><span class="pplan__lbl" data-i18n="row.pages"></span><span data-i18n="c.pages.premium"></span></p>
+          <p><span class="pplan__lbl" data-i18n="row.langs"></span><span data-i18n="c.langs.premium"></span></p>
+          <p><span class="pplan__lbl" data-i18n="row.incl"></span><span data-i18n="c.incl.premium"></span></p>
+          <p><span class="pplan__lbl" data-i18n="row.support"></span><span data-i18n="c.support.premium"></span></p>
+          <p><span class="pplan__lbl" data-i18n="row.time"></span><span data-i18n="c.time.premium"></span></p>
+          <div class="pplan__foot"><a href="#contact" class="btn btn--ink" data-i18n="pricing.order">Order</a></div>
+        </article>
+      </div>
+
+      <p class="pricing__note reveal" data-i18n="pricing.note"></p>
+    </section>
+
+    <!-- ===== КАК РАБОТАЕМ: четыре строки «лесенкой» на тёмном поле ===== -->
+    <section class="process" id="process" data-chapter="dark">
+      <h2 class="chapter-title reveal" data-i18n="process.title">How we work</h2>
+      <ol class="stairs">
+        <li class="stair reveal" data-i18n="process.s1"></li>
+        <li class="stair reveal" data-i18n="process.s2"></li>
+        <li class="stair reveal" data-i18n="process.s3"></li>
+        <li class="stair stair--last reveal" data-i18n="process.s4"></li>
+      </ol>
+    </section>
+
+    <!-- ===== КОНТАКТЫ: две строки крупным шрифтом ===== -->
+    <section class="contact" id="contact" data-chapter="paper">
+      <h2 class="chapter-title reveal" data-i18n="contact.title">Contact</h2>
+      <ul class="rows">
+        <!-- TODO: заменить номер. В href без пробелов: tel:+48123456789 -->
+        <li class="row reveal"><a href="tel:+48577126566">+48 577 126 566</a></li>
+        <!-- mailto: говорит браузеру «открой почтовую программу с этим адресом» -->
+        <li class="row reveal"><a href="mailto:repkapeldev@gmail.com">repkapeldev@gmail.com</a></li>
+      </ul>
+    </section>
+
+    <!-- ===== ФУТЕР: маленький логотип и копирайт в углу под контактами ===== -->
+    <footer class="footer" data-chapter="paper">
+      <p class="footer__mark">repkapel.dev</p>
+      <p class="footer__legal">© <span id="year">2026</span></p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
